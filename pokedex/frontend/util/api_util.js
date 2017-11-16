@@ -7,10 +7,10 @@ const APIUtil = {
     });
   },
 
-  fetchAPokemon(pokemon) {
+  fetchAPokemon(pokemonId) {
     return $.ajax({
       method: 'GET',
-      url: `/api/pokemon/${pokemon.id}`
+      url: `/api/pokemon/${pokemonId}`
     });
   }
 

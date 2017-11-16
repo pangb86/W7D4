@@ -1,13 +1,13 @@
 import { RECEIVE_A_POKEMON } from '../actions/pokemon_actions';
 import merge from 'lodash/merge';
 
-const uiReducer = (state, action) => {
+const uiReducer = (state = {}, action) => {
   Object.freeze(state);
   let nextState;
 
   switch(action.type) {
     case RECEIVE_A_POKEMON:
-      let obj = {pokeDisplay: action.pokemon.id};
+      let obj = {pokeDisplay: action.pokemon.pokemon.id};
       return obj;
     default:
       return state;

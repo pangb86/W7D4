@@ -9,9 +9,14 @@ import { requestAPokemon, receiveAllPokemon, requestAllPokemon } from './actions
 import { selectAllPokemon } from './reducers/selectors';
 
 document.addEventListener('DOMContentLoaded', () => {
-  // window.requestAPokemon = requestAPokemon;
+  window.requestAPokemon = requestAPokemon;
   // window.fetchAPokemon = APIUtil.fetchAPokemon;
+
+
   const store = configureStore();
+
+  window.dispatch = store.dispatch;
+
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={store} />, root);
 });
