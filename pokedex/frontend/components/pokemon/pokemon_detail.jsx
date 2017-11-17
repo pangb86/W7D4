@@ -1,4 +1,7 @@
 import React from 'react';
+import values from 'lodash/values';
+import ItemDetailContainer from '../items/item_detail_container';
+import { Link, Route } from 'react-router-dom';
 
 class PokemonDetail extends React.Component {
   constructor(props){
@@ -20,6 +23,12 @@ class PokemonDetail extends React.Component {
               <li>Moves: {pokemon.moves.join(", ")}</li>
             </ul>
           </div>
+          <ul>
+            {values(this.props.items).map((item) =>
+              <Link to={`/pokemon/${pokemon.id}/item/${item.id}`}><li key={item.name}><img width="100px" src={item.image_url} /></li></Link>
+            )}
+          </ul>
+          <Route path='/pokemon/:pokemonId/item/:itemId' component={ItemDetailContainer} />
         </div>
       );
     } else {

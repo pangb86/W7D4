@@ -6,16 +6,16 @@ import { Route } from 'react-router-dom';
 
 import APIUtil from './util/api_util';
 import { requestAPokemon, receiveAllPokemon, requestAllPokemon } from './actions/pokemon_actions';
-import { selectAllPokemon } from './reducers/selectors';
+import { selectPokemonItem, selectAllPokemon } from './reducers/selectors';
 
 document.addEventListener('DOMContentLoaded', () => {
   window.requestAPokemon = requestAPokemon;
   // window.fetchAPokemon = APIUtil.fetchAPokemon;
 
-
   const store = configureStore();
-
+  window.store = store;
   window.dispatch = store.dispatch;
+  window.selectPokemonItem = selectPokemonItem;
 
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={store} />, root);

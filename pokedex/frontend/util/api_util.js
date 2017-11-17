@@ -12,6 +12,14 @@ const APIUtil = {
       method: 'GET',
       url: `/api/pokemon/${pokemonId}`
     });
+  },
+
+  createPokemon(pokemon) {
+    return $.ajax({
+      method: 'POST',
+      url: '/api/pokemon',
+      data: pokemon
+    });
   }
 
 };

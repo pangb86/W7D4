@@ -7,7 +7,11 @@ const itemsReducer = (state = {}, action) => {
 
   switch(action.type) {
     case RECEIVE_A_POKEMON:
-      nextState = merge({}. state, action.pokemon.items);
+      let obj = {};
+      for(var i = 0; i < action.pokemon.items.length; i++) {
+        obj[action.pokemon.items[i].id] = action.pokemon.items[i];
+      }
+      nextState = merge({}, state, obj);
       return nextState;
     default:
       return state;
